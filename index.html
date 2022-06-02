@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="svg-inject.min.js"></script>
+    <title>Formulário</title>
+</head>
+<body>
+    <main>
+        <section id="account">
+            <h1>O próximo passo é criar a <strong>sua conta</strong></h1>
+
+            <div id="induce">
+                <img src="img/Ellipse 1.svg" alt="" class="elipses injectable" id="elipse1" >
+                <img src="img/Ellipse 2.svg" alt="" class="elipses injectable" id="elipse2" >
+                <img src="img/Ellipse 3.svg" alt="" class="elipses injectable" id="elipse3" >
+                <img src="img/arrow.svg" alt="" class="injectable" id="arrow">
+            </div>
+        </section>
+
+        <section id="form">
+            <h2>Para participar de um dos melhores bootcamps de programação, precisamamos de alguns dados</h2>
+
+            <form action="">
+                <div id="containerInputsText">
+                    <div>
+                        
+                        <input type="text" name="" id="">
+                        <label for="">Nome</label>
+                    </div>
+                    
+                    <div>
+                        
+                        <input type="text" name="" id="">
+                        <label for="">E-mail</label>
+                    </div>
+                    
+                    <div>
+                        <input type="password" name="" id="">
+                        <label for="">Senha</label>
+                        <img src="img/eye.svg" alt="" class="injectable">
+    
+                    </div>
+    
+                    <div>
+                        
+                        <input type="password" name="" id="">
+                        <label for="">Confirme a sua senha</label>
+                    </div>
+                </div>
+
+                <div id="containerCheckbox">
+                    <label for="">
+                        Concordo em receber atualizações em meu E-mail
+                        <input type="checkbox" name="" id="">
+                        <span id="checkmark"></span>
+
+                    </label>
+                </div>
+                
+
+                <button type="submit">BORA!</button>
+            </form>
+        </section>
+    </main>
+
+
+    <script src="svg-inject.min.js"></script>
+    <script>
+        SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
+</body>
+</html>

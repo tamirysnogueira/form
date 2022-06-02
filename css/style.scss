@@ -1,0 +1,276 @@
+@import 'colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@mixin flexCenter($content, $items) {
+    display: flex;
+    justify-content: $content;
+    align-items: $items;
+}
+
+@mixin animate($x, $y) {
+    transform: translate($x, $y);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100%;
+
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+
+    flex-direction: column;
+
+    #account {
+        text-align: center;
+
+        max-width: 301px;
+
+        margin: 15.6rem 15px 0 15px;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+
+            color: white;
+
+            strong {
+                text-decoration: underline;
+                color: $light-purple;
+            }
+        }
+
+        #induce {
+            width: 100%;
+            height: 188px;
+
+            position: relative;
+
+            margin-top: 6.06rem;
+            margin-bottom: 9.5rem;
+
+            .elipses {
+                position: absolute;
+                transition: 0.4s ease-in-out;
+            }
+
+            #elipse1 {
+                top: 0;
+                right: 50px;
+                
+                
+            }
+
+            #elipse2 {
+                top: 20px;
+                right: 70px;
+                fill: transparent;
+                z-index: 10;
+
+                transition: 0.4s ease-in-out;
+
+            }
+
+            #elipse3 {
+                top: 40px;
+                right: 90px;
+
+            }
+
+            #arrow {
+                position: absolute;
+                top: 70px;
+                right: 120px;
+
+                transform: rotate(90deg);
+
+                transition: 0.4s ease-in-out;
+
+                z-index: 11;
+            
+            }
+
+            @keyframes animate {
+                0% {
+                    top: 70px;
+                }
+
+                100% {
+                    top: 90px;
+                }
+
+                
+            }
+
+            &:hover {
+                .elipses {
+                    filter: drop-shadow(0 0 0.75rem $light-purple);
+                }
+
+                #elipse1 {
+                    
+
+                    @include animate(30px, -30px)
+                    
+                }
+
+                #elipse2 {
+                    fill: $light-purple;
+                }
+
+                #elipse3 {
+
+                    @include animate(-30px, 30px)
+                }
+
+                #arrow {
+                    animation: animate 1s linear infinite;
+                    animation-direction: alternate;
+                }
+            }
+
+        }
+        
+    }
+
+    #form {
+        width: 100vw;
+
+        background-color: $dark-grey;
+
+        padding: 4.3rem 2rem;
+        margin-left: 0.68rem;
+
+        border-radius: 42px 0 0 0;
+        border-width: 1px 0px 0px 1px;
+        border-style: solid;
+        border-color: $dark-purple;
+
+        box-shadow: 0px 4px 54px $dark-purple;
+
+        color: $medium-grey;
+
+        h2 {
+            font-weight: 500;
+            font-size: 1.3rem;
+
+            color: $light-grey;
+
+            line-height: 2.1rem;
+        }
+
+        form {
+            max-width: 689px;
+
+            margin-top: 6.5rem;
+
+            
+
+            #containerInputsText {
+                width: 100%;
+
+                flex-direction: column;
+                gap: 3rem;
+
+                div {
+                    width: 100%;
+
+                    position: relative;
+
+                    label {
+                        position: absolute;
+                        top: 30px;
+
+                        left: 10px;
+
+                        font-size: 0.87rem;
+
+                        transition: 0.3s ease-in-out;
+                    }
+
+                    
+
+                    input {
+                        width: 100%;
+                        height: 56px;
+    
+                        background-color: transparent;
+    
+                        border: 1px solid $medium-grey;
+                        border-radius: 5px;
+
+                        margin-top: 10px;
+
+                        padding-left: 10px;
+
+                        position: relative;
+
+                        &:focus {
+                            outline: none;
+
+                            border-color: $dark-purple;
+
+                            color: white;
+
+                            font-size: 0.87rem;
+
+                            
+                        }
+
+                        &:focus ~ label {
+                            top: -15px;
+                            font-size: 0.7rem;
+                        }
+                    }
+
+
+                    svg {
+                        position: absolute;
+                        right: 10px;
+                        top: 25px;
+
+                        cursor: pointer;
+                    }
+
+                
+                }
+
+                @include flexCenter(flex-start, flex-start)
+                
+            }
+
+            #containerCheckbox {
+                margin-top: 2.5rem;
+
+                label {
+                    position: relative;
+
+                    span {
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        background-color: transparent;
+                        border: 1px solid $medium-grey;
+                    }
+                }
+            }
+
+            
+        }
+    }
+    
+
+    @include flexCenter(center, center)
+}
+
