@@ -138,7 +138,7 @@ main #account #induce:hover #arrow {
 }
 
 main #form {
-  width: 100vw;
+  width: 100%;
   background-color: #242424;
   padding: 4.3rem 2rem;
   margin-left: 0.68rem;
@@ -159,12 +159,12 @@ main #form h2 {
 }
 
 main #form form {
-  max-width: 689px;
+  width: 100%;
   margin-top: 6.5rem;
 }
 
 main #form form #containerInputsText {
-  width: 100%;
+  max-width: 689px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -213,9 +213,13 @@ main #form form #containerInputsText div input:focus {
   font-size: 0.87rem;
 }
 
-main #form form #containerInputsText div input:focus ~ label {
+main #form form #containerInputsText div input:focus ~ label, main #form form #containerInputsText div input:valid ~ label {
   top: -15px;
   font-size: 0.7rem;
+}
+
+main #form form #containerInputsText div input:valid {
+  color: white;
 }
 
 main #form form #containerInputsText div svg {
@@ -227,17 +231,105 @@ main #form form #containerInputsText div svg {
 
 main #form form #containerCheckbox {
   margin-top: 2.5rem;
+  margin-bottom: 3.6rem;
+  max-width: 689px;
+}
+
+main #form form #containerCheckbox input {
+  display: none;
+}
+
+main #form form #containerCheckbox input:checked + label::before {
+  background-color: #362F8B;
+  border-color: #362F8B;
+  -webkit-box-shadow: 0px 4px 15px #362F8B;
+          box-shadow: 0px 4px 15px #362F8B;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 18 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 1L6 12L1 7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 main #form form #containerCheckbox label {
-  position: relative;
+  cursor: pointer;
+  font-size: 0.75rem;
 }
 
-main #form form #containerCheckbox label span {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: transparent;
+main #form form #containerCheckbox label::before {
+  content: '';
+  width: 21px;
+  height: 21px;
+  border-radius: 5px;
   border: 1px solid #5E5E5E;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  margin-right: 13px;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2px;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+main #form form #containerButton {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #form form #containerButton button {
+  width: 207px;
+  height: 62px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #362F8B;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+main #form form #containerButton button:hover {
+  background-color: #8681BC;
+  color: black;
+}
+
+@media screen and (min-width: 900px) {
+  main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+  }
+  main #account {
+    margin: 15.6rem 4.5rem 0 4.5rem;
+  }
+  main #account #induce #arrow {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  main #form {
+    width: 1033px;
+    height: 100vh;
+    margin-top: 8.1rem;
+    margin-left: 10rem;
+  }
+  main #form h2 {
+    font-size: 1.3rem;
+  }
+  main #form form #containerInputsText label, main #form form #containerCheckbox label {
+    font-size: 1rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

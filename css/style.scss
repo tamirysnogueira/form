@@ -145,7 +145,7 @@ main {
     }
 
     #form {
-        width: 100vw;
+        width: 100%;
 
         background-color: $dark-grey;
 
@@ -171,14 +171,14 @@ main {
         }
 
         form {
-            max-width: 689px;
+            width: 100%;
 
             margin-top: 6.5rem;
 
             
 
             #containerInputsText {
-                width: 100%;
+                max-width: 689px;
 
                 flex-direction: column;
                 gap: 3rem;
@@ -198,8 +198,6 @@ main {
 
                         transition: 0.3s ease-in-out;
                     }
-
-                    
 
                     input {
                         width: 100%;
@@ -228,9 +226,13 @@ main {
                             
                         }
 
-                        &:focus ~ label {
+                        &:focus ~ label, &:valid ~ label{
                             top: -15px;
                             font-size: 0.7rem;
+                        }
+
+                        &:valid {
+                            color: white;
                         }
                     }
 
@@ -252,25 +254,133 @@ main {
 
             #containerCheckbox {
                 margin-top: 2.5rem;
+                margin-bottom: 3.6rem;
+
+                max-width: 689px;
+
+                input {
+                    display: none;
+
+                    &:checked + label::before {
+                        background-color: $dark-purple;
+                        border-color: $dark-purple;
+                        box-shadow: 0px 4px 15px $dark-purple;
+
+                        background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 18 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 1L6 12L1 7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+                    }
+                }
 
                 label {
-                    position: relative;
+                    cursor: pointer;
 
-                    span {
-                        position: absolute;
-                        width: 25px;
-                        height: 25px;
-                        background-color: transparent;
+                    font-size: 0.75rem;
+                    &::before {
+                        content: '';
+                        width: 21px;
+                        height: 21px;
+                        
+                        border-radius: 5px;
                         border: 1px solid $medium-grey;
+
+                        display: inline-block;
+
+                        vertical-align: middle;
+
+                        margin-bottom: 3px;
+                        margin-right: 13px;
+
+                        background-position: center;
+                        background-repeat: no-repeat;
+
+                        padding: 2px;
+
+                        cursor: pointer;
+
+                        transition: 0.3s ease-in-out;
                     }
                 }
             }
 
+            #containerButton {
+                width: 100%;
+
+                button {
+                    width: 207px;
+                    height: 62px;
+
+                    border-radius: 5px;
+
+                    font-size: 1.1rem;
+                    font-weight: 600;
+
+                    color: white;
+
+                    background-color: $dark-purple;
+
+                    border: none;
+
+                    cursor: pointer;
+
+                    letter-spacing: 2px;
+
+                    transition: 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: $light-purple;
+
+                        color: black;
+                    }
+                }
+
+                @include flexCenter(center, center)
+            }
             
         }
     }
     
 
     @include flexCenter(center, center)
+}
+
+@media screen and (min-width: 900px) {
+    main {
+        flex-direction: row;
+        height: 100vh;
+
+        overflow: hidden;
+
+        #account {
+            margin: 15.6rem 4.5rem 0 4.5rem;
+
+            #induce {
+                #arrow {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        #form {
+            width: 1033px;
+            height: 100vh;
+
+            margin-top: 8.1rem;
+            margin-left: 10rem;
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            form {
+                #containerInputsText,  #containerCheckbox {
+                    label {
+                        font-size: 1rem;
+                    }
+                }
+               
+            }
+        }
+        
+    }
 }
 
