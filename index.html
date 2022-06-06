@@ -24,41 +24,41 @@
         <section id="form">
             <h2>Para participar de um dos melhores bootcamps de programação, precisamamos de alguns dados</h2>
 
-            <form action="">
+            <form action="myForm">
                 <div id="containerInputsText">
                     <div>
                         
-                        <input type="text" name="" id="name" required>
+                        <input type="text" name="name" id="name" required maxlength="25" class="input">
                         <label for="name">Nome</label>
                     </div>
                     
                     <div>
                         
-                        <input type="text" name="" id="email" required>
+                        <input type="text" name="email" id="email" required maxlength="25" class="input">
                         <label for="email">E-mail</label>
                     </div>
                     
                     <div>
-                        <input type="password" name="" id="password-1" required>
+                        <input type="password" name="password-1" id="password-1" required maxlength="25" class="input">
                         <label for="password-1">Senha</label>
-                        <img src="img/eye.svg" alt="" class="injectable">
+                        <img src="img/eye.svg" alt="" class="injectable" id="eye-open">
     
                     </div>
     
                     <div>
                         
-                        <input type="password" name="" id="password-2" required>
+                        <input type="password" name="password-2" id="password-2" required maxlength="25" class="input">
                         <label for="password-2">Confirme a sua senha</label>
                     </div>
                 </div>
 
                 <div id="containerCheckbox">
-                    <input type="checkbox" name="" id="checkbox-1" required >
+                    <input type="checkbox" name="checkbox-1" id="checkbox-1" required maxlength="25" class="input">
                     <label for="checkbox-1">Concordo em receber atualizações em meu E-mail</label>
                 </div>
                 
                 <div id="containerButton">
-                    <button type="submit" id="button">BORA!</button>
+                    <button type="submit" id="button" >BORA!</button>
                 </div>
                 
             </form>
@@ -66,6 +66,7 @@
     </main>
 
 
+    <script src="scripts/validation.js"></script>
     <script src="svg-inject.min.js"></script>
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
