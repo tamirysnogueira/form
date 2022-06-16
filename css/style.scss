@@ -181,7 +181,7 @@ main {
                 max-width: 689px;
 
                 flex-direction: column;
-                gap: 3rem;
+                gap: 2rem;
 
                 div {
                     width: 100%;
@@ -237,12 +237,22 @@ main {
                     }
 
 
-                    svg {
+                    img {
                         position: absolute;
                         right: 10px;
                         top: 25px;
 
                         cursor: pointer;
+                    }
+
+                    span {
+                        font-size: 0.8rem;
+
+                        color: #C63030;
+
+                        opacity: 0;
+
+
                     }
 
                 
@@ -257,6 +267,14 @@ main {
                 margin-bottom: 3.6rem;
 
                 max-width: 689px;
+
+                .errorValidation {
+                    &::before {
+                        border-color: red;
+                        box-shadow: 0px 3px 15px red;
+
+                    }
+                }
 
                 input {
                     display: none;
