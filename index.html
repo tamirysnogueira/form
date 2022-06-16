@@ -24,41 +24,44 @@
         <section id="form">
             <h2>Para participar de um dos melhores bootcamps de programação, precisamamos de alguns dados</h2>
 
-            <form action="myForm">
+            <form action="POST" >
                 <div id="containerInputsText">
                     <div>
                         
-                        <input type="text" name="name" id="name" required maxlength="25" class="input">
-                        <label for="name">Nome</label>
+                        <input type="text" name="Nome" id="name" required maxlength="25" class="input">
+                        <label for="Nome">Nome</label>
+                        <span></span>
                     </div>
                     
                     <div>
                         
-                        <input type="text" name="email" id="email" required maxlength="25" class="input">
-                        <label for="email">E-mail</label>
+                        <input type="email" name="E-mail" id="email" required class="input" >
+                        <label for="E-mail">E-mail</label>
+                        <span></span>
                     </div>
                     
                     <div>
-                        <input type="password" name="password-1" id="password-1" required maxlength="25" class="input">
-                        <label for="password-1">Senha</label>
-                        <img src="img/eye.svg" alt="" class="injectable" id="eye-open">
-    
+                        <input type="password" name="Senha" id="password-1" required maxlength="25" class="input">
+                        <label for="Senha">Senha</label>
+                        <span></span>
+                        <img src="img/eye.png" alt=""  class="hiddenShow" onclick="hiddenShow(this)">
                     </div>
     
                     <div>
                         
-                        <input type="password" name="password-2" id="password-2" required maxlength="25" class="input">
-                        <label for="password-2">Confirme a sua senha</label>
+                        <input type="password" name="Confirmação da senha" id="password-2" required maxlength="25" class="input">
+                        <label for="Confirmação da senha">Confirme a sua senha</label>
+                        <span></span>
                     </div>
                 </div>
 
                 <div id="containerCheckbox">
                     <input type="checkbox" name="checkbox-1" id="checkbox-1" required maxlength="25" class="input">
-                    <label for="checkbox-1">Concordo em receber atualizações em meu E-mail</label>
+                    <label for="checkbox-1" >Concordo em receber atualizações em meu E-mail</label>
                 </div>
                 
                 <div id="containerButton">
-                    <button type="submit" id="button" >BORA!</button>
+                    <button type="submit" id="button">BORA!</button>
                 </div>
                 
             </form>
