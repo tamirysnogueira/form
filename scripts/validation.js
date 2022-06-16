@@ -6,6 +6,10 @@ function validationField(field){
     function verifyErrors(){
         let foundError = false
 
+        field.setAttribute('message', `${field.name}`)
+
+        validationPassword()
+    
         for(let error in field.validity){ //o for in consegue iterar sobre cada propriedade dos objetos
             if(field.validity[error]) {
                 foundError = error
@@ -18,15 +22,30 @@ function validationField(field){
     function validationPassword(){
         const confirmPassword = document.getElementById('password-2')
         const password = document.getElementById('password-1')
+
+        const passwords = [confirmPassword, password]
+
+        console.log(passwords)
         
         if(password.value != ''){
             if(password.value.length < 8){
-                customFieldError('A senha é muito curta')
+                password.setCustomValidity("A senha é muito curta")
+                password.setAttribute('message', `A senha é muito curta`)
                  
-            } else if((password.value != confirmPassword.value) && (confirmPassword.value != '')) {
-                customFieldError('As senhas não batem')
+            } else if(password.value != confirmPassword.value) {
+                for(let password of passwords){
+                    password.setCustomValidity("As senhas não batem")
+                    password.setAttribute('message', `As senhas não batem`) 
+                }
             } else {
-                deleteStyleError()
+                for(let password of passwords){
+                    password.setCustomValidity("")
+
+                    const parent = password.parentNode
+
+                    password.style.borderColor = '#5E5E5E'
+                    parent.children['2'].style.opacity = '0'
+                }
             }
         }
     }
@@ -52,7 +71,7 @@ function validationField(field){
         //se o id da div for diferente a containerCheckbox, irá mudar a borda do input e aparecer
         //a mensagem do span
 
-        if(parent.id != 'containerCheckbox'){
+        if(parent.id != 'containerCheckbox' ){
             let span = parent.children['2']
 
             span.innerText = `${message}`
@@ -67,14 +86,9 @@ function validationField(field){
         const error = verifyErrors()
 
         if(error && error != 'valid'){
-            customFieldError(field.name)
+            customFieldError(field.getAttribute('message'))
         } else {
-            if(field.name === 'Senha' || field.name === 'Confirmação da senha'){
-                
-                validationPassword()
-            } else {
-                deleteStyleError()
-            }
+            deleteStyleError()
             
         }
     }
@@ -86,6 +100,7 @@ function customValidation(event){
 
     validation()
 }
+
 for (let field of fields) {
         field.addEventListener('invalid', event => {
             event.preventDefault()
